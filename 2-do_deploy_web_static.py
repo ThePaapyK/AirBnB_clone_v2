@@ -9,7 +9,6 @@ env.user = 'ubuntu'
 env.hosts = ['3.94.185.28', '35.153.17.98']
 
 
-
 def do_deploy(archive_path):
     """deploy the tgz item to my web servers"""
     if (os.path.isfile(archive_path) is False):
@@ -28,5 +27,5 @@ def do_deploy(archive_path):
         run('rm -rf /data/web_static/current')
         run('ln -s {} {}'.format(path, symp))
         return True
-    except:
+    except Exception:
         return False
