@@ -5,6 +5,9 @@ do_deploy = __import__('2-do_deploy_web_static').do_deploy
 
 
 def deploy():
+    """calls two functions to fully deploy
+    the web_static folder
+    """
         try:
             archive_name = do_pack()
             val = do_deploy(archive_name)
