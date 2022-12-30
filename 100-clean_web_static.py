@@ -62,11 +62,11 @@ def do_clean(number=0):
         with cd('/data/web_static/releases/'):
             run("sudo ls -lv | rev | cut -f 1 | \
             rev | head -n +1 | xargs -d '\n' rm -rf")
-        else:
+    else:
 
-            with cd.local('./versions/'):
-                local("ls -lv | rev | cut -f 1 | rev | \
-                head -n +{} | xargs -d '\n' rm -rf".format(number))
-            with cd('/data/web_static/releases/'):
-                run("sudo ls -lv | rev | cut -f 1 | \
-                rev | head -n +{} | xargs -d '\n' rm -rf".format(number))
+        with cd.local('./versions/'):
+            local("ls -lv | rev | cut -f 1 | rev | \
+            head -n +{} | xargs -d '\n' rm -rf".format(number))
+        with cd('/data/web_static/releases/'):
+            run("sudo ls -lv | rev | cut -f 1 | \
+            rev | head -n +{} | xargs -d '\n' rm -rf".format(number))
