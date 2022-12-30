@@ -53,6 +53,7 @@ def deploy():
     except Exception:
         return False
 
+
 def do_clean(number=0):
     """deletes outdated archives"""
     if number == 0 or number == 1:
