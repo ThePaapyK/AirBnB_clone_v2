@@ -56,7 +56,7 @@ def deploy():
 def do_clean(number=0):
     """deletes outdated archives"""
     if number == 0 or number == 1:
-        with cd.local('./versions/'):
+        with lcd('./versions/'):
             local("ls -lv | rev | cut -f 1 | rev | \
             head -n +1 | xargs -d '\n' rm -rf")
         with cd('/data/web_static/releases/'):
@@ -64,7 +64,7 @@ def do_clean(number=0):
             rev | head -n +1 | xargs -d '\n' rm -rf")
     else:
 
-        with cd.local('./versions/'):
+        with lcd('./versions/'):
             local("ls -lv | rev | cut -f 1 | rev | \
             head -n +{} | xargs -d '\n' rm -rf".format(number))
         with cd('/data/web_static/releases/'):
