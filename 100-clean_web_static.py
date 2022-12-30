@@ -64,7 +64,6 @@ def do_clean(number=0):
             run("sudo ls -lv | rev | cut -f 1 | \
             rev | head -n +1 | xargs -d '\n' rm -rf")
     else:
-
         with lcd('./versions/'):
             local("ls -lv | rev | cut -f 1 | rev | \
             head -n +{} | xargs -d '\n' rm -rf".format(number))
