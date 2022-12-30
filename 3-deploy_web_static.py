@@ -8,9 +8,9 @@ def deploy():
     """calls two functions to fully deploy
     the web_static folder
     """
-        try:
-            archive_name = do_pack()
-            val = do_deploy(archive_name)
-            return val
-        except:
-            return False
+    try:
+        archive_name = do_pack()
+        val = do_deploy(archive_name)
+        return val
+    except Exception:
+        return False
