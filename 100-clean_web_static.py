@@ -7,18 +7,17 @@ env.hosts = ['3.94.185.28', '35.153.17.98']
 
 
 def do_clean(number=0):
-    """deletes outdated archives"""
-    if number == 0 or number == 1:
-        with lcd('./versions/'):
-            local("ls -lv | rev | cut -f 1 | rev | \
-            head -n +1 | xargs -d '\n' rm -rf")
-        with cd('/data/web_static/releases/'):
-            run("sudo ls -lv | rev | cut -f 1 | \
-            rev | head -n +1 | xargs -d '\n' rm -rf")
-    else:
-        with lcd('./versions/'):
-            local("ls -lv | rev | cut -f 1 | rev | \
-            head -n +{} | xargs -d '\n' rm -rf".format(number))
-        with cd('/data/web_static/releases/'):
-            run("sudo ls -lv | rev | cut -f 1 | \
-            rev | head -n +{} | xargs -d '\n' rm -rf".format(number))
+    """Deletes outdated archives
+    """
+    number = 1 if int(number) == 0 else int(number)
+
+    archives = sorted(os.listdir("versions"))
+    [archives.pop() for i in range(number)]
+    with lcd("versions"):
+        [local("rm ./{}".format(a)) for a in archives]
+
+    with cd("/data/web_static/releases"):
+        archives = run("ls -tr").split()
+        archives = [a for a in archives if "web_static_" in a]
+        [archives.pop() for i in range(number)]
+        [run("rm -rf ./{}".format(a)) for a in archives]
