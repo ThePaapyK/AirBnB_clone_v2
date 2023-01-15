@@ -23,7 +23,7 @@ def text():
     value of the text variable \
     (replace underscore _ symbols with a space )
     """
-    return 'C %s'.replace('_', ' ') % escape(text)
+    return 'C {}'.format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':
