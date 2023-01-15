@@ -18,7 +18,7 @@ def hbnb():
 
 
 @app.route('/c/<string:text>', strict_slashes=False)
-def text():
+def text(text=None):
     """display “C ” followed by the \
     value of the text variable \
     (replace underscore _ symbols with a space )
