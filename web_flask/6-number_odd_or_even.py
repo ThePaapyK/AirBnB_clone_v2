@@ -46,7 +46,7 @@ def num_temp(n=None):
     return render_template('5-number.html', n=n)
 
 
-@app.route('/number_odd_or_even/<int: n>', strict_slashes=False)
+@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
 def even_or_odd(n=None):
     """display a HTML page only if n is an integer"""
     return render_template('6-number_odd_or_even.html', n=n)
