@@ -14,8 +14,8 @@ def tear_down(self):
     storage.close()
 
 
-@app.route('/states_list', strict_slashes=False)
-def states():
+@app.route('/cities_by_states', strict_slashes=False)
+def states_n_cities():
     """display a HTML page: (inside the tag BODY)"""
     return render_template('8-cities_by_states.html',
                            states=storage.all(State))
